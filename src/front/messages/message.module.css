@@ -1,0 +1,12 @@
+.btn{
+    color: white;
+    background-color: blue;
+    padding: 10px;
+    border-radius: 25px ;
+    border: none;
+    float: right;
+}
+.message{
+    display: grid;
+    grid-template-columns: 3fr 9fr  ;
+}
