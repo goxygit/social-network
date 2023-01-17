@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/goxygit/static/css/main.200fbae0.css",
+    "main.js": "/goxygit/static/js/main.0c131d30.js",
+    "static/js/787.28cb0dcd.chunk.js": "/goxygit/static/js/787.28cb0dcd.chunk.js",
+    "static/media/gifLoader.png": "/goxygit/static/media/gifLoader.11562bddc8c1ae7f24b1.png",
+    "static/media/skelet.gif": "/goxygit/static/media/skelet.5f5d96f168643c104044.gif",
+    "index.html": "/goxygit/index.html",
+    "main.200fbae0.css.map": "/goxygit/static/css/main.200fbae0.css.map",
+    "main.0c131d30.js.map": "/goxygit/static/js/main.0c131d30.js.map",
+    "787.28cb0dcd.chunk.js.map": "/goxygit/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.200fbae0.css",
+    "static/js/main.0c131d30.js"
+  ]
+}
