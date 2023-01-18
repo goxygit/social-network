@@ -1,12 +1,12 @@
 import React from 'react';
 import c from "./content.module.css"
-import Profile from './content/Profile';
-import MyPost from './content/myPost-container';
+import Profile from './Profile/Profile';
+import MyPost from './Profile/myPost-container';
 
 const Content = (props) => {
     return (
         <div className={c.content} >
-            <Profile profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+            <Profile setPhoto={props.setPhoto} isOwner={props.isOwner} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
             <MyPost/>
            </div> 
     )

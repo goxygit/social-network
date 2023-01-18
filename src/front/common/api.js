@@ -36,6 +36,14 @@ export const profileApi = {
   getStatus(userId) {
     return instans.get(`profile/status/` + userId).then((response)=> response.data)
   },
+  photos(file) {
+    const formData = new FormData();
+    formData.append("image", file)
+    return instans
+        .put(`profile/photo`, formData).then((response) => response.data);
+}
+
+
 };
 export const authApi ={
   me() {
@@ -46,5 +54,6 @@ export const authApi ={
   },
   logout(){
     return instans.delete(`auth/login`).then((response) => response.data);
-  }
+  },
+  
 }

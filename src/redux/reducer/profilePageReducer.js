@@ -2,6 +2,7 @@ import { profileApi, userApi } from "../../front/common/api";
 let ADD_POST = 'profile/ADD-POST'
 let SET_USER_PROFILE = 'profile/SET-USER-PROFILE'
 let SET_STATUS = 'profile/SET-STATUS'
+let SET_PHOTO = 'profile/SET-PHOTO'
 let initialState = {
   posts: [
     { id: 1, post: "yo kurwa", like: 24 },
@@ -19,6 +20,11 @@ const ProfilePageReducer = (state = initialState, action) => {
       return {
         ...state,
         posts: [...state.posts, { id: state.i, post: text, like: state.i }],
+      };
+      case SET_PHOTO:
+      return {
+        ...state,
+       userProfile: {...state.userProfile, photos:action.photo}
       };
     case SET_USER_PROFILE:
       return {
@@ -43,6 +49,9 @@ export const setUserProfile = (profile) => {
 export const setStatusProfile = (status) => {
   return { type: SET_STATUS, status };
 };
+export const setProfilePhoto = (photo) => {
+  return { type: SET_PHOTO, photo };
+};
 export const getProfileThunk = (userId) => {
   return (dispatch) => {
     userApi.setProfile(userId).then((data) => {
@@ -59,6 +68,12 @@ export const updateStatus = (status) => async (dispatch) => {
   let data = await profileApi.updateStatus(status);
   if (data.resultCode === 0) {
     dispatch(setStatusProfile(status));
+  }
+};
+export const setPhoto = (photo) => async (dispatch) => {
+  let data = await profileApi.photos(photo);
+  if (data.resultCode === 0) {
+    dispatch(setProfilePhoto(data.data.photos));
   }
 };
 

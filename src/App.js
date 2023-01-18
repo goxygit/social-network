@@ -6,7 +6,7 @@ import Content from "./front/content/profile-container";
 import Mess from "./front/messages/message-container";
 import Friend from "./front/friends/friend-container";
 import Login from "./front/login/login";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { getInitilize } from "./redux/reducer/appReducer";
 import { Load } from "./front/common/preloader";
@@ -19,7 +19,7 @@ class App extends React.Component {
       return <Load />;
     }
     return (
-      <BrowserRouter>
+      <HashRouter basename="/">
         <div className="app-wrapper">
           <Header />
           <SideBar />
@@ -33,7 +33,7 @@ class App extends React.Component {
             </Routes>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
