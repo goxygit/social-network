@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import { login } from "../../redux/reducer/authReducer";
+import { login } from "../../redux/reducer/authReducer.ts";
 import { connect } from "react-redux";
-import { compose } from "redux";
 import { withAuthRedirect } from "../common/withAuthRedirect";
 import { Navigate } from "react-router-dom";
 const OnLogin = (props) => {

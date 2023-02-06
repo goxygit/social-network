@@ -9,7 +9,7 @@ const Mess = (props) => {
     <MI name={m.name} key={m.id} />
   ));
   let DialogItems = props.DialogsPage.messages.map((d) => (
-    <Dialogs message={d.message} />
+    <Dialogs message={d.message} key={d.id}/>
   ));
   return (
     <div className={m.message}>

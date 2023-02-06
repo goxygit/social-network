@@ -7,18 +7,38 @@ import {
   followThunk,
   unfollowThunk,
   usersPageThunk,
-  togleFollowingProgress,
+  
 } from "../../redux/reducer/usersReducer";
 import { compose } from "redux";
 import { withAuthRedirect } from "../common/withAuthRedirect";
 import { getIsFetching, getPage, getTogleFollowing, getTotalUsersCount, getUser, getUserPage } from "../../redux/usersSelector";
+import { UsersType } from "../types/types";
+import { AppReducers } from "../../redux/redux-store";
 
-class Users extends React.Component {
+type MapDispatchPropsType ={
+  
+  usersThunk: (pageCurrent: number, usersPage:number)=> void
+  usersPageThunk: (pageCurrent: number, usersPage:number)=> void
+  unfollowThunk: (id: number)=> void
+  followThunk: (id: number)=> void
+}
+type MapStatePropsType ={
+  totalUsersCount: number
+  usersPage: number
+  pageCurrent: number
+  users: Array<UsersType>
+  togleFollowing: Array<number>
+  isFetching: boolean
+
+}
+type OwnPropsType ={}
+type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
+class Users extends React.Component<PropsType> {
   componentDidMount() {
     this.props.usersThunk(this.props.pageCurrent, this.props.usersPage);
   }
 
-  onPageChanged = (p) => {
+  onPageChanged = (p: number) => {
     this.props.usersPageThunk(p, this.props.usersPage);
   };
 
@@ -35,14 +55,13 @@ class Users extends React.Component {
           users={this.props.users}
           onPageChanged={this.onPageChanged}
           togleFollowing={this.props.togleFollowing}
-          togleFollowingProgress={this.props.togleFollowingProgress}
         />
       </>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppReducers): MapStatePropsType => {
   return {
     users: getUser(state),
     pageCurrent: getPage(state),
@@ -53,13 +72,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default compose(
-  connect(mapStateToProps, {
+export default compose<React.Component>(
+  connect<MapStatePropsType, MapDispatchPropsType,OwnPropsType,  AppReducers>(mapStateToProps, {
     usersThunk,
     followThunk,
     unfollowThunk,
     usersPageThunk,
-    togleFollowingProgress,
+    
   }),
   withAuthRedirect
 )(Users);

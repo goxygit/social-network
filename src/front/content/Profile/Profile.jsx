@@ -1,4 +1,4 @@
-import ProfileStatusWithHook from './profileStatusWithHook'
+import ProfileStatusWithHook from './profileStatusWithHook.tsx'
 import Preloader from '../../common/preloader'
 import profileLogo from '../../img/profileLogo.gif'
 import c from '../content.module.css'
@@ -23,7 +23,7 @@ const Profile = (props) =>{
        {props.isOwner && <input type='file'onChange={pushPhotos}/> }
         <div>
             <h1>{props.profile.fullName}</h1>
-            <ProfileStatusWithHook status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileStatusWithHook getStatus={props.status} updateStatus={props.updateStatus}/>
             <p>{props.profile.aboutMe}</p>
             <p>{props.profile.lookingForAJobDescription}</p>
             <p>Skills: React</p>

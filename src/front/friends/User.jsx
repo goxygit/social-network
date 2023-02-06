@@ -23,8 +23,7 @@ const User =({p,togleFollowing,unfollowThunk,followThunk })=>{
                 <div
                 disabled={togleFollowing}
                   onClick={() => {
-                    unfollowThunk(p)
-                    
+                    unfollowThunk(p.id)
                   }}
                   style={{ padding: "0 12px", margin: "2px 0" }}
                 >
@@ -49,7 +48,7 @@ const User =({p,togleFollowing,unfollowThunk,followThunk })=>{
                 <div
                 disabled={togleFollowing}
                   onClick={() => {
-                    followThunk(p)
+                    followThunk(p.id)
                   }}
                   style={{ padding: "0 12px", margin: "2px 0" }}
                 >
